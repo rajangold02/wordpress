@@ -20,7 +20,7 @@ resource "aws_elb" "example" {
     interval            = 30
   }
 
-  instances                   = ["${aws_instance.example.id}"]
+  instances = ["${module.ec2_instance.server_id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
@@ -52,3 +52,7 @@ resource "aws_security_group" "elb" {
     Name         = "allow"
   }
   }
+  module "ec2_instance" {
+        source = "../../module/ec2"
+}
+
