@@ -4,7 +4,7 @@ resource "aws_db_instance" "default" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "${var.instance_class}"
-  security_groups      = ["${aws_security_group.rds.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.rds.id}"]
   name                 = "mydb"
   username             = "ebizon"
   password             = "Ebizon12345"
@@ -33,4 +33,5 @@ resource "aws_security_group" "rds" {
   tags {
     Name         = "allow_rds"
   }
+  
   

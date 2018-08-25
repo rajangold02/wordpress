@@ -14,5 +14,5 @@ module "ec2" {
 }
 
 module "elb" {
-        sourece = "./module/ec2"
+        source = "./module/elb"
 }

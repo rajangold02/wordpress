@@ -12,7 +12,7 @@ resource"aws_instance" "ebizon" {
         tags {
         Name = "Ebizon"
 		}
-        user_data = "${file("./apache.sh")}"
+        user_data = "${file("./module/ec2/wordpress.sh")}"
 
         }
 

@@ -4,6 +4,6 @@ output "server_id" {
 output "public_dns" {
   value = "${aws_instance.ebizon.public_dns}"
 }
-output "public_dns" {
+output "public_ip" {
   value = "${aws_instance.ebizon.public_ip}"
 }

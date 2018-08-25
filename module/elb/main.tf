@@ -1,9 +1,12 @@
-resource "aws_elb" "ebizon" {
+resource "aws_elb" "example" {
   name               = "${var.name}"
-  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  subnets = ["subnet-6931a423"]
+  security_groups = ["${aws_security_group.elb.id}"]
 
-   listener {
-    instance_port     = 80
+
+
+  listener {
+    instance_port     = 8000
     instance_protocol = "http"
     lb_port           = 80
     lb_protocol       = "http"
@@ -13,18 +16,18 @@ resource "aws_elb" "ebizon" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:80/"
+    target              = "HTTP:8000/"
     interval            = 30
   }
- security_groups      = ["${aws_security_group.elb.id}"] 
- instances                   = ["${./module.ec2.aws_instance.ebizon.id}"]
+
+  instances                   = ["${aws_instance.example.id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
-
+  
   tags {
-    Name = "wordpress_elb"
+    Name = "example-terraform-elb"
   }
 }
 resource "aws_security_group" "elb" {
