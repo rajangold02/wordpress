@@ -33,5 +33,6 @@ resource "aws_security_group" "rds" {
   tags {
     Name         = "allow_rds"
   }
+  }
   
   
