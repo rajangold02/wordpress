@@ -18,5 +18,5 @@ module "ec2" {
 
 module "elb" {
         source = "./module/elb"
-		instances = "${module.ec2.server_id}"
+		server_id = "${module.ec2.server_id}"
 }
