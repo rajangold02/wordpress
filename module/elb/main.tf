@@ -20,7 +20,7 @@ resource "aws_elb" "example" {
     interval            = 30
   }
 
-  instances = ["${module.ec2_instance.server_id}"]
+  instances = ["${var.server_id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
@@ -32,7 +32,7 @@ resource "aws_elb" "example" {
 }
 resource "aws_security_group" "elb" {
   vpc_id      = "${var.vpc_id}"
-  name        = "allow-Access-elb"
+  name        = "allow-Access"
   description = "security group that allows ssh,http and all egress traffic"
 
   egress {
@@ -52,7 +52,4 @@ resource "aws_security_group" "elb" {
     Name         = "allow"
   }
   }
-  module "ec2_instance" {
-        source = "../../module/ec2"
-}
 

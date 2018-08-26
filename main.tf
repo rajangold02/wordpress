@@ -1,3 +1,6 @@
+provider "aws" {
+	region = "us-east-1"
+}
 terraform {
   backend "s3" {
     bucket = "wordpressterraform"
@@ -15,4 +18,5 @@ module "ec2" {
 
 module "elb" {
         source = "./module/elb"
+		instance = "${module.ec2.server_id}"
 }
