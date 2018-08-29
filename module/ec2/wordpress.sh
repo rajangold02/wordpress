@@ -8,5 +8,5 @@ sudo wget http://wordpress.org/latest.tar.gz
 sudo tar -xvf latest.tar.gz
 cd wordpress
 sudo cp -r * .. && cd ..
-mv wp-config-sample.php wp-config.php
+sudo touch health.txt
 sudo service httpd restart

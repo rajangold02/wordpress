@@ -16,7 +16,7 @@ resource "aws_elb" "example" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:80/"
+    target              = "HTTP:80/health.txt"
     interval            = 30
   }
 
@@ -44,7 +44,7 @@ resource "aws_security_group" "elb" {
 
   ingress {
     from_port   = 0
-    to_port     = 0
+    to_port     = 65535
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
