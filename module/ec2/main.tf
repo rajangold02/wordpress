@@ -1,7 +1,3 @@
-provider "aws" {
-        region = "${var.AWS_REGION}"
-}
-
 resource"aws_instance" "ebizon" {
         ami = "ami-04681a1dbd79675a5"
         instance_type = "t2.micro"
