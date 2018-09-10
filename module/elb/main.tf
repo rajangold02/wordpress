@@ -1,9 +1,9 @@
 resource "aws_elb" "example" {
-  name               = "${var.name}"
-  subnets = ["subnet-6931a423"]
+  name            = "${var.name}"
+  subnets         = ["subnet-6931a423"]
   security_groups = ["${aws_security_group.elb.id}"]
 
-    listener {
+  listener {
     instance_port     = 80
     instance_protocol = "http"
     lb_port           = 80
@@ -18,16 +18,17 @@ resource "aws_elb" "example" {
     interval            = 30
   }
 
-  instances = ["${var.server_id}"]
+  instances                   = ["${var.server_id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
-  
+
   tags {
     Name = "example-terraform-elb"
   }
 }
+
 resource "aws_security_group" "elb" {
   vpc_id      = "${var.vpc_id}"
   name        = "allow-elb-Access"
@@ -41,13 +42,13 @@ resource "aws_security_group" "elb" {
   }
 
   ingress {
-    from_port   = 0
-    to_port     = 65535
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags {
-    Name         = "allow"
-  }
-  }
 
+  tags {
+    Name = "allow"
+  }
+}

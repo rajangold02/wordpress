@@ -1,15 +1,15 @@
 resource "aws_db_instance" "default" {
-  allocated_storage    = 10
-  storage_type         = "gp2"
-  engine               = "mysql"
-  engine_version       = "5.7"
-  instance_class       = "${var.instance_class}"
-  vpc_security_group_ids      = ["${aws_security_group.rds.id}"]
-  name                 = "mydb"
-  username             = "ebizon"
-  password             = "Ebizon12345"
-  parameter_group_name = "default.mysql5.7"
-  skip_final_snapshot  = "true"
+  allocated_storage      = 10
+  storage_type           = "gp2"
+  engine                 = "mysql"
+  engine_version         = "5.7"
+  instance_class         = "${var.instance_class}"
+  vpc_security_group_ids = ["${aws_security_group.rds.id}"]
+  name                   = "mydb"
+  username               = "ebizon"
+  password               = "Ebizon12345"
+  parameter_group_name   = "default.mysql5.7"
+  skip_final_snapshot    = "true"
 }
 
 resource "aws_security_group" "rds" {
@@ -25,14 +25,13 @@ resource "aws_security_group" "rds" {
   }
 
   ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
     security_groups = ["${var.instancesg_id}"]
   }
+
   tags {
-    Name         = "allow_rds"
+    Name = "allow_rds"
   }
-  }
-  
-  
+}
