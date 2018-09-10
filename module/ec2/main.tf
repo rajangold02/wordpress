@@ -14,7 +14,7 @@ resource"aws_instance" "ebizon" {
 
 resource "aws_security_group" "allow" {
   vpc_id      = "${var.vpc_id}"
-  name        = "allow-Access"
+  name        = "allow-ec2-Access"
   description = "security group that allows ssh,http and all egress traffic"
 
   egress {

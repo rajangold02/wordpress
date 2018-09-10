@@ -14,7 +14,7 @@ resource "aws_db_instance" "default" {
 
 resource "aws_security_group" "rds" {
   vpc_id      = "${var.vpc_id}"
-  name        = "allow-Access"
+  name        = "allow-rds-Access"
   description = "security group that allows ssh,http and all egress traffic"
 
   egress {

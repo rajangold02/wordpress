@@ -32,7 +32,7 @@ resource "aws_elb" "example" {
 }
 resource "aws_security_group" "elb" {
   vpc_id      = "${var.vpc_id}"
-  name        = "allow-Access"
+  name        = "allow-elb-Access"
   description = "security group that allows ssh,http and all egress traffic"
 
   egress {
