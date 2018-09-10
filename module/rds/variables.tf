@@ -5,3 +5,4 @@ variable "instance_class" {
 variable "vpc_id" {
   default = "vpc-881a21f3"
 }
+variable "instancesg_id" {}

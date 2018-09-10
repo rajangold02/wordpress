@@ -7,3 +7,5 @@ output "public_dns" {
 output "public_ip" {
   value = "${aws_instance.ebizon.public_ip}"
 }
+output "instancesg_id"
+  value = "${aws_instance.allow.id}"

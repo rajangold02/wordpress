@@ -10,10 +10,12 @@ terraform {
 }
 module "rds" {
         source = "./module/rds"
+		instancesg_id = "${module.ec2.instancesg_id}"
 }
 
 module "ec2" {
         source = "./module/ec2"
+		elbsg_id = "${module.elb.elbsg_id}"
 }
 
 module "elb" {

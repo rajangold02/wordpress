@@ -28,13 +28,13 @@ resource "aws_security_group" "allow" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["210.18.176.193/32"]
   }
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${var.elbsg_id}"]
   }
   tags {
     Name         = "allow"

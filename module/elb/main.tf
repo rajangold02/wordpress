@@ -3,9 +3,7 @@ resource "aws_elb" "example" {
   subnets = ["subnet-6931a423"]
   security_groups = ["${aws_security_group.elb.id}"]
 
-
-
-  listener {
+    listener {
     instance_port     = 80
     instance_protocol = "http"
     lb_port           = 80
