@@ -11,5 +11,5 @@ output "public_ip" {
 }
 
 output "instancesg_id" {
-  value = "${aws_instance.allow.id}"
+  value = "${aws_security_group.allow.id}"
 }
