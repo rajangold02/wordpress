@@ -1,6 +1,6 @@
 resource "aws_instance" "ebizon" {
-  ami                         = "ami-04681a1dbd79675a5"
-  instance_type               = "t2.micro"
+  ami                         = "${var.ami_id}"
+  instance_type               = "${var.instance_type}"
   key_name                    = "${var.Key_Name}"
   subnet_id                   = "subnet-6931a423"
   security_groups             = ["${aws_security_group.allow.id}"]

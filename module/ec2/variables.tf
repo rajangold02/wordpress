@@ -1,9 +1,17 @@
 variable "Key_Name" {
-  default = "smartcity"
+  default = ""
 }
 
 variable "vpc_id" {
-  default = "vpc-881a21f3"
+  default = ""
+}
+
+variable "ami_id"{
+  default = ""
+}
+
+variable "instance_type"{
+  default = ""
 }
 
 variable "elbsg_id" {}
