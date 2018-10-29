@@ -13,5 +13,3 @@ variable "ami_id"{
 variable "instance_type"{
   default = ""
 }
-
-variable "elbsg_id" {}
